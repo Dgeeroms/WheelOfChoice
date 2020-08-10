@@ -1,0 +1,54 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="main_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:backgroundTint">@color/main_button_back</item>
+        <item name="android:fontFamily">@font/milonga</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/main_button_text</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="main_spin_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:backgroundTint">@color/main_button_back</item>
+        <item name="android:fontFamily">@font/milonga</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/main_button_text</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+
+    </style>
+
+    <style name="secondary_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:backgroundTint">@color/secondary_button_back</item>
+        <item name="android:fontFamily">@font/milonga</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/main_button_text</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+
+
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ChoiceWheel</string>
+    <string name="welcome_text">Welcome to the Choice Wheel!</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="manage_wheels">Manage Wheels</string>
+    <string name="spin">SPIN!</string>
+    <string name="choose_and_spin">Choose a wheel and \nSPIN!</string>
+    <string name="manage_the_wheels">Manage the wheels</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="choices">Choices</string>
+</resources>
