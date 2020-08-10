@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChoiceWheel</string>
+    <string name="app_name">Wheel Of Choice</string>
     <string name="welcome_text">Welcome to the Choice Wheel!</string>
     <string name="tutorial">Tutorial</string>
     <string name="manage_wheels">Manage Wheels</string>
@@ -9,4 +9,6 @@
     <string name="name">Name</string>
     <string name="description">Description</string>
     <string name="choices">Choices</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

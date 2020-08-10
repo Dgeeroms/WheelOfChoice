@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.natappsone.wheelofchoice.TitleFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:id="@+id/titleScreenConstraint">
+
+        <Button
+            android:id="@+id/spin_wheel_button"
+            style="@style/main_spin_button"
+            android:text="@string/spin"
+            app:layout_constraintBottom_toTopOf="@+id/manage_wheels_button"
+            app:layout_constraintDimensionRatio="3:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/manage_wheels_button"
+            style="@style/main_button"
+            android:text="@string/manage_wheels"
+            app:layout_constraintBottom_toTopOf="@+id/tutorial_button"
+            app:layout_constraintDimensionRatio="6:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spin_wheel_button" />
+
+        <Button
+            android:id="@+id/tutorial_button"
+            style="@style/secondary_button"
+            android:text="@string/tutorial"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="6:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manage_wheels_button" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
