@@ -7,29 +7,40 @@
 
     <fragment
         android:id="@+id/titleScreenFragment"
-        android:name="com.natappsone.wheelofchoice.TitleFragment"
-        android:label="fragment_title_screen"
-        tools:layout="@layout/fragment_title_screen" >
+        android:name="com.natappsone.wheelofchoice.screens.title.TitleFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_title_screen">
         <action
             android:id="@+id/action_titleScreenFragment_to_spinFragment"
-            app:destination="@id/spinFragment" />
+            app:destination="@id/spinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
         <action
             android:id="@+id/action_titleScreenFragment_to_manageWheelFragment"
-            app:destination="@id/manageWheelFragment" />
+            app:destination="@id/manageWheelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
         <action
             android:id="@+id/action_titleScreenFragment_to_tutorialFragment"
-            app:destination="@id/tutorialFragment" />
+            app:destination="@id/tutorialFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/spinFragment"
-        android:name="com.natappsone.wheelofchoice.SpinFragment"
-        android:label="SpinFragment" />
+        android:name="com.natappsone.wheelofchoice.screens.spin.SpinFragment"
+        android:label="@string/lets_spin" />
     <fragment
         android:id="@+id/manageWheelFragment"
-        android:name="com.natappsone.wheelofchoice.ManageWheelFragment"
-        android:label="ManageWheelFragment" />
+        android:name="com.natappsone.wheelofchoice.screens.managewheel.ManageWheelFragment"
+        android:label="@string/manage_your_wheels" />
     <fragment
         android:id="@+id/tutorialFragment"
-        android:name="com.natappsone.wheelofchoice.TutorialFragment"
-        android:label="TutorialFragment" />
+        android:name="com.natappsone.wheelofchoice.screens.tutorial.TutorialFragment"
+        android:label="@string/tutorial" />
 </navigation>
