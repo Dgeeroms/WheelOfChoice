@@ -1,7 +1,7 @@
 package com.natappsone.wheelofchoice.screens.managewheel
 
-import android.arch.lifecycle.ViewModel
 import android.util.Log
+import androidx.lifecycle.ViewModel
 
 class ManageWheelViewModel : ViewModel(){
 
