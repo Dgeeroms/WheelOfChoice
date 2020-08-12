@@ -8,13 +8,13 @@ import com.natappsone.wheelofchoice.models.Wheel
 interface WheelsDatabaseDao{
 
     @Insert
-    fun insert(wheel: Wheel)
+    fun insert(wheel: Wheel) : Long
 
     @Update
     fun update(wheel: Wheel)
 
-    @Query("SELECT * FROM wheel_table ORDER BY wheelName ASC")
-    fun getAll(): LiveData<List<Wheel>>
+    @Query("SELECT * FROM wheel_table ORDER BY wheel_name ASC")
+    fun getAll(): List<Wheel>
 
     @Delete
     fun delete(wheel: Wheel)

@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.natappsone.wheelofchoice.models.Wheel
 import com.natappsone.wheelofchoice.models.WheelOption
+import com.natappsone.wheelofchoice.utilities.converters.WheelOptionsConverter
 
-@Database(entities = [Wheel::class, WheelOption::class], version = 1, exportSchema = false)
+@Database(entities = [Wheel::class/*, WheelOption::class*/], version = 2, exportSchema = false)
+@TypeConverters(WheelOptionsConverter::class)
 abstract class WheelsDatabase : RoomDatabase(){
 
     abstract val wDao: WheelsDatabaseDao

@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.natappsone.wheelofchoice.R
+import com.natappsone.wheelofchoice.database.WheelsDatabase
 import com.natappsone.wheelofchoice.databinding.FragmentManageWheelBinding
 
 /**
@@ -26,11 +27,18 @@ class ManageWheelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.i("ManageWheelFragment", "Called ViewModelProviders.of")
-        vm = ViewModelProviders.of(this).get(ManageWheelViewModel::class.java)
-
         val binding: FragmentManageWheelBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_manage_wheel, container, false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = WheelsDatabase.getInstance(application).wDao
+        val vmFactory = ManageWheelViewModelFactory(dataSource, application)
+        val vm = ViewModelProviders.of(this, vmFactory).get(ManageWheelViewModel::class.java)
+
+        binding.manageWheelViewModel = vm
+
+        binding.lifecycleOwner = this
+
         return binding.root
     }
 

@@ -1,5 +1,6 @@
 package com.natappsone.wheelofchoice.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,7 +9,8 @@ data class Wheel(
 
     @PrimaryKey(autoGenerate = true)
     var wheelId: Long = 0L,
-    val wheelName: String = ""
-    //val wheelOptions: List<WheelOption> = listOf(WheelOption())
+    @ColumnInfo(name = "wheel_name")
+    var wheelName: String = "",
+    var wheelOptions: MutableList<WheelOption> = ArrayList()
 
 )
