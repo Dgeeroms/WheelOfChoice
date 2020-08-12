@@ -1,6 +1,7 @@
 package com.natappsone.wheelofchoice
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -67,37 +68,42 @@ class WheelOfChoiceDBTest {
     @Throws(Exception::class)
     fun insertAndGetWheel() {
         wheelDao.insert(wheel)
-        val wheels = wheelDao.getAll()
+        val LDwheels: LiveData<List<Wheel>> = wheelDao.getAll()
+        val wheels = LDwheels.value  // works with List<Wheel>, but not with LiveData<List<Wheel>>
 
-        assertEquals("Test", wheels[0].wheelName)
+        assertEquals("Test", wheels?.get(0)?.wheelName)
     }
     @Test
     @Throws(Exception::class)
     fun getWheelOption1Name() {
         wheelDao.insert(wheel)
-        val wheels = wheelDao.getAll()
-        assertEquals("TestOption1", wheels[0].wheelOptions[0].wheelOptionName)
+        val LDwheels: LiveData<List<Wheel>> = wheelDao.getAll()
+        val wheels = LDwheels.value
+        assertEquals("TestOption1", wheels?.get(0)?.wheelOptions?.get(0)?.wheelOptionName)
     }
     @Test
     @Throws(Exception::class)
     fun getWheelOption1Color() {
         wheelDao.insert(wheel)
-        val wheels = wheelDao.getAll()
-        assertEquals("#ff0000", wheels[0].wheelOptions[0].wheelOptionColor)
+        val LDwheels: LiveData<List<Wheel>> = wheelDao.getAll()
+        val wheels = LDwheels.value
+        assertEquals("#ff0000", wheels?.get(0)?.wheelOptions?.get(0)?.wheelOptionColor)
     }
     @Test
     @Throws(Exception::class)
     fun getWheelOption2Name() {
         wheelDao.insert(wheel)
-        val wheels = wheelDao.getAll()
-        assertEquals("TestOption2", wheels[0].wheelOptions[1].wheelOptionName)
+        val LDwheels: LiveData<List<Wheel>> = wheelDao.getAll()
+        val wheels = LDwheels.value
+        assertEquals("TestOption2", wheels?.get(1)?.wheelOptions?.get(1)?.wheelOptionName)
     }
     @Test
     @Throws(Exception::class)
     fun getWheelOption2Color() {
         wheelDao.insert(wheel)
-        val wheels = wheelDao.getAll()
-        assertEquals("#0004ff", wheels[0].wheelOptions[1].wheelOptionColor)
+        val LDwheels: LiveData<List<Wheel>> = wheelDao.getAll()
+        val wheels = LDwheels.value
+        assertEquals("#0004ff", wheels?.get(1)?.wheelOptions?.get(1)?.wheelOptionColor)
     }
 
 

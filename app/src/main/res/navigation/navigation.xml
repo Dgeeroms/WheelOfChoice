@@ -38,9 +38,33 @@
     <fragment
         android:id="@+id/manageWheelFragment"
         android:name="com.natappsone.wheelofchoice.screens.managewheel.ManageWheelFragment"
-        android:label="@string/manage_your_wheels" />
+        android:label="@string/manage_your_wheels" >
+        <action
+            android:id="@+id/action_manageWheelFragment_to_newWheelFragment"
+            app:destination="@id/newWheelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
+        <action
+            android:id="@+id/action_manageWheelFragment_to_updateWheelFragment"
+            app:destination="@id/updateWheelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/tutorialFragment"
         android:name="com.natappsone.wheelofchoice.screens.tutorial.TutorialFragment"
         android:label="@string/tutorial" />
+    <fragment
+        android:id="@+id/newWheelFragment"
+        android:name="com.natappsone.wheelofchoice.screens.managewheel.NewWheelFragment"
+        android:label="@string/create_new_wheel"
+        tools:layout="@layout/fragment_new_wheel" />
+    <fragment
+        android:id="@+id/updateWheelFragment"
+        android:name="com.natappsone.wheelofchoice.screens.managewheel.UpdateWheelFragment"
+        android:label="@string/update_wheel" />
 </navigation>

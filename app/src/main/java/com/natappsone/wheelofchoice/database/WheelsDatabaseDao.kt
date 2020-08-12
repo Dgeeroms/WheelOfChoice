@@ -14,7 +14,7 @@ interface WheelsDatabaseDao{
     fun update(wheel: Wheel)
 
     @Query("SELECT * FROM wheel_table ORDER BY wheel_name ASC")
-    fun getAll(): List<Wheel>
+    fun getAll(): LiveData<List<Wheel>> //List<Wheel>
 
     @Delete
     fun delete(wheel: Wheel)

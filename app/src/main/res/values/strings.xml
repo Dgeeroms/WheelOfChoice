@@ -12,5 +12,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lets_spin">Let\'s SPIN!</string>
-    <string name="manage_your_wheels">Manage you Wheels</string>
+    <string name="manage_your_wheels">Manage your Wheels</string>
+    <string name="create_new_wheel">Create new wheel</string>
+    <string name="update_wheel">Update Wheel</string>
 </resources>

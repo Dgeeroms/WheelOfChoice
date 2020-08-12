@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.natappsone.wheelofchoice.R
 import com.natappsone.wheelofchoice.database.WheelsDatabase
 import com.natappsone.wheelofchoice.databinding.FragmentManageWheelBinding
@@ -29,6 +30,11 @@ class ManageWheelFragment : Fragment() {
 
         val binding: FragmentManageWheelBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_manage_wheel, container, false)
+
+        binding.createNewWheelButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(
+            R.id.action_manageWheelFragment_to_newWheelFragment
+        ))
 
         val application = requireNotNull(this.activity).application
         val dataSource = WheelsDatabase.getInstance(application).wDao
