@@ -2,10 +2,7 @@ package com.natappsone.wheelofchoice.screens.managewheel
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.natappsone.wheelofchoice.database.WheelsDatabase
 import com.natappsone.wheelofchoice.database.WheelsDatabaseDao
 import com.natappsone.wheelofchoice.models.Wheel
@@ -24,10 +21,28 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val wheels = db.getAll()
+    val wheels = db.getAll()
     //map to presentable string
     val wheelNameString = Transformations.map(wheels) {
                 wheels -> formatWheels(wheels, application.resources)
+    }
+
+
+    private var _navigateToUpdateWheel = MutableLiveData<Wheel>()
+
+    val navigateToUpdateWheel : LiveData<Wheel>
+        get() = _navigateToUpdateWheel
+
+    fun doneNavigating(){
+        _navigateToUpdateWheel.value = null
+    }
+
+    private var _showSavedSnack = MutableLiveData<Boolean>()
+    val showSavedSnack : LiveData<Boolean>
+        get() = _showSavedSnack
+
+    fun _doneShowingSavedSnack(){
+        _showSavedSnack.value = false
     }
 
     init {
@@ -36,6 +51,8 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
 
     private fun initializeWheels() {
         uiScope.launch {
+
+            deleteAllWheels()
 
             //some sample data
             var wheel = Wheel()
@@ -51,14 +68,21 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
             //wheels = db.getAll()
         }
     }
-/*
-    private suspend fun getWheelsFromDatabase(): List<Wheel>? {
-        return withContext(Dispatchers.IO){
-            var wheels = db.getAll()
-            wheels.value
+
+    private suspend fun deleteAllWheels() {
+        withContext(Dispatchers.IO){
+            db.deleteAll()
         }
     }
-*/
+
+    /*
+        private suspend fun getWheelsFromDatabase(): List<Wheel>? {
+            return withContext(Dispatchers.IO){
+                var wheels = db.getAll()
+                wheels.value
+            }
+        }
+    */
     private fun insertWheel(wheel: Wheel){
         uiScope.launch {
             insert(wheel)
@@ -72,10 +96,16 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
         }
     }
 
+    fun goToUpdateWheel(){
+        uiScope.launch {
+            _navigateToUpdateWheel.value = Wheel()
+        }
+    }
+
     private fun updateWheel(wheel: Wheel){
         uiScope.launch {
             update(wheel)
-            //wheels.value = getWheelsFromDatabase()
+            _navigateToUpdateWheel.value = wheel
         }
     }
 
@@ -96,6 +126,11 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
         withContext(Dispatchers.IO){
             db.delete(wheel)
         }
+    }
+
+    fun onSave(){
+        //TODO get Wheel and insert or update
+        _showSavedSnack.value = true
     }
 
 

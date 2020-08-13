@@ -1,5 +1,7 @@
 package com.natappsone.wheelofchoice.utilities.converters
 
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.TypeConverter
 import com.natappsone.wheelofchoice.models.WheelOption
 import java.util.*
@@ -35,3 +37,5 @@ class WheelOptionsConverter {
         return value
     }
 }
+
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)

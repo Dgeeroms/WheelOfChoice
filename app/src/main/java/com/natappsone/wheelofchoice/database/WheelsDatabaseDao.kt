@@ -20,4 +20,7 @@ interface WheelsDatabaseDao{
     @Delete
     fun delete(wheel: Wheel)
 
+    @Query("DELETE FROM wheel_table")
+    fun deleteAll()
+
 }

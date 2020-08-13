@@ -17,4 +17,5 @@
     <string name="update_wheel">Update Wheel</string>
     <string name="save">Save</string>
     <string name="wheel_name">Wheel name:</string>
+    <string name="updated_message">The Wheel was updated!</string>
 </resources>

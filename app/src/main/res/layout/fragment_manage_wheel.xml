@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="ManageWheelViewModel"
+            name="manageWheelViewModel"
             type="com.natappsone.wheelofchoice.screens.managewheel.ManageWheelViewModel" />
     </data>
 
@@ -19,27 +19,16 @@
             android:id="@+id/create_new_wheel_button"
             style="@style/main_button"
             android:text="@string/create_new_wheel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/manage_wheels_linl"
             app:layout_constraintDimensionRatio="6:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <LinearLayout
-            android:id="@+id/manage_wheels_linl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="w,1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_new_wheel_button">
 
-            <ScrollView
+
+            <!--ScrollView
                 android:id="@+id/manage_wheels_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -51,10 +40,25 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{ManageWheelViewModel.wheelNameString}"/>
+                    android:text="@{manageWheelViewModel.wheelNameString}"
+                    android:onClick="@{() -> manageWheelViewModel.goToUpdateWheel()}"/>
 
-            </ScrollView>
-        </LinearLayout>
+            </ScrollView-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wheels_recList"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_new_wheel_button"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+        </androidx.recyclerview.widget.RecyclerView>
+            
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

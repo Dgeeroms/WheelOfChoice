@@ -14,7 +14,7 @@ fun formatWheels(wheels: List<Wheel>, resources: Resources): Spanned{
         wheels.forEach {
             append("<br>")
             append(it.wheelName)
-
+            //append("android:tag=\"" + it.wheelId + "\"")
             it.wheelOptions.forEach{
                 append("<br>")
                 append(it.wheelOptionName + " - " + it.wheelOptionColor)
