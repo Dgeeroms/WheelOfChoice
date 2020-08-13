@@ -15,4 +15,6 @@
     <string name="manage_your_wheels">Manage your Wheels</string>
     <string name="create_new_wheel">Create new wheel</string>
     <string name="update_wheel">Update Wheel</string>
+    <string name="save">Save</string>
+    <string name="wheel_name">Wheel name:</string>
 </resources>

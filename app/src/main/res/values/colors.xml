@@ -5,7 +5,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="main_background">#c4c4c4</color>
     <color name="header_text">#03c2fc</color>
-    <color name="main_button_back">#036bfc</color>
+    <color name="edit_text_label">#036bfc</color>
     <color name="main_button_text">#03c2fc</color>
     <color name="secondary_button_back">#9c9c9c</color>
+    <color name="main_button_back">#036bfc</color>
 </resources>

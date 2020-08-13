@@ -62,9 +62,28 @@
         android:id="@+id/newWheelFragment"
         android:name="com.natappsone.wheelofchoice.screens.managewheel.NewWheelFragment"
         android:label="@string/create_new_wheel"
-        tools:layout="@layout/fragment_new_wheel" />
+        tools:layout="@layout/fragment_new_wheel" >
+        <action
+            android:id="@+id/action_newWheelFragment_to_manageWheelFragment"
+            app:destination="@id/manageWheelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/updateWheelFragment"
         android:name="com.natappsone.wheelofchoice.screens.managewheel.UpdateWheelFragment"
-        android:label="@string/update_wheel" />
+        android:label="@string/update_wheel" >
+        <argument
+            android:name="wheelKey"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_updateWheelFragment_to_manageWheelFragment"
+            app:destination="@id/manageWheelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/side_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/side_out_left" />
+    </fragment>
 </navigation>

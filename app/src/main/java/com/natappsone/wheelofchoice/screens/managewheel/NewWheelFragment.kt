@@ -21,6 +21,10 @@ class NewWheelFragment : Fragment() {
         val binding: FragmentNewWheelBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_new_wheel, container, false)
 
+        binding.newSaveButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(
+                R.id.action_newWheelFragment_to_manageWheelFragment
+            ))
 
         return binding.root
     }
