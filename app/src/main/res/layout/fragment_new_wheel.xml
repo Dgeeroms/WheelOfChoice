@@ -7,6 +7,9 @@
         <variable
             name="manageWheelViewModel"
             type="com.natappsone.wheelofchoice.screens.managewheel.ManageWheelViewModel" />
+        <variable
+            name="wheel"
+            type="com.natappsone.wheelofchoice.models.Wheel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:layout_constraintVertical_chainStyle="packed"
-            android:onClick="@{() -> manageWheelViewModel.onSave()}"/>
+            android:onClick="@{() -> manageWheelViewModel.onInsert(wheel)}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

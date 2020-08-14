@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 //@Entity(tableName = "wheel_options_table")
 data class WheelOption(
 
-    //@PrimaryKey(autoGenerate = true)
-    //var wheelOptionId: Long = 0L,
+    @PrimaryKey(autoGenerate = true)
+    var wheelOptionId: Long = 0L,
     var wheelOptionName: String = "",
     var wheelOptionColor: String = ""
 

@@ -37,7 +37,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/update_name_label"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="@{wheel.wheelName}"
+            android:inputType="textPersonName"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/wheelOptions_recList"
@@ -58,7 +60,7 @@
             style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> manageWheelViewModel.onSave()}"
+            android:onClick="@{() -> manageWheelViewModel.onUpdate(wheel)}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +68,8 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
 
-
+        <!--include
+            layout="@layout/colorpicker" /-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.natappsone.wheelofchoice.models.Wheel
@@ -18,9 +19,9 @@ fun TextView.setWheelNameText(item: Wheel?){
 
 
 @BindingAdapter("optionNameText")
-fun TextView.setOptionNameText(item: WheelOption?){
+fun EditText.setOptionNameText(item: WheelOption?){
     item?.let {
-        text = item.wheelOptionName
+       setText(item.wheelOptionName)
     }
 }
 

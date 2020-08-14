@@ -24,13 +24,20 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
 
 
     private var _navigateToUpdateWheel = MutableLiveData<Wheel>()
-
     val navigateToUpdateWheel : LiveData<Wheel>
         get() = _navigateToUpdateWheel
 
     fun doneNavigating(){
         _navigateToUpdateWheel.value = null
     }
+
+    private var _wheelToUpdate = MutableLiveData<Wheel>()
+    val wheelToUpdate: LiveData<Wheel>
+        get() = _wheelToUpdate
+
+    private var _randomWheelOption = MutableLiveData<Int>()
+    val randomWheelOption: LiveData<Int>
+        get() = _randomWheelOption
 
     private var _showSavedSnack = MutableLiveData<Boolean>()
     val showSavedSnack : LiveData<Boolean>
@@ -42,6 +49,27 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
 
     init {
         initializeWheels()
+    }
+
+    fun spin(wheelCount : Int){
+        _randomWheelOption.value = (0..wheelCount-1).random()
+    }
+
+
+    fun updateCurrentWheel(wheelId: Long)
+    {
+        uiScope.launch {
+            _wheelToUpdate.value = getById(wheelId)
+        }
+
+    }
+
+    fun changeOptionColor(wheelOption: WheelOption){
+
+        var index = _wheelToUpdate.value?.wheelOptions?.indexOf(wheelOption)
+        if (index != null) {
+            _wheelToUpdate.value?.wheelOptions?.set(index, wheelOption)
+        }
     }
 
     private fun initializeWheels() {
@@ -56,11 +84,12 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
             val wheelOpt1 = WheelOption()
             wheelOpt1.wheelOptionName = "TestOption1"
             wheelOpt1.wheelOptionColor = "#ff0000"
-            wheel.wheelOptions = mutableListOf(wheelOpt1, wheelOpt1)
+            val wheelOpt2 = WheelOption()
+            wheelOpt2.wheelOptionName = "TestOption2"
+            wheelOpt2.wheelOptionColor = "#ffffff"
+            wheel.wheelOptions = mutableListOf(wheelOpt1, wheelOpt2)
 
-            insertWheel(wheel)
-
-            //wheels = db.getAll()
+            //insertWheel(wheel)
         }
     }
 
@@ -70,18 +99,9 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
         }
     }
 
-    /*
-        private suspend fun getWheelsFromDatabase(): List<Wheel>? {
-            return withContext(Dispatchers.IO){
-                var wheels = db.getAll()
-                wheels.value
-            }
-        }
-    */
     private fun insertWheel(wheel: Wheel){
         uiScope.launch {
             insert(wheel)
-           // wheels.value = getWheelsFromDatabase()
         }
     }
 
@@ -93,7 +113,8 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
 
     fun goToUpdateWheel(wheelId: Long){
         uiScope.launch {
-            _navigateToUpdateWheel.value = getById(wheelId)
+            val wheel = getById(wheelId)
+            _navigateToUpdateWheel.value = wheel
         }
     }
 
@@ -121,7 +142,6 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
     private fun deleteWheel(wheel: Wheel){
         uiScope.launch {
             delete(wheel)
-           // wheels.value = getWheelsFromDatabase()
         }
     }
 
@@ -131,10 +151,21 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
         }
     }
 
-    fun onSave(){
-        //TODO get Wheel and insert or update
+
+    fun onUpdate(wheel: Wheel){
+        uiScope.launch {
+            _wheelToUpdate.value = wheel
+            update(wheel)
+        }
         _showSavedSnack.value = true
     }
 
+    fun onInsert(wheel: Wheel){
+        uiScope.launch {
+            //_wheelToUpdate.value = wheel
+            insert(wheel)
+        }
+        _showSavedSnack.value = true
+    }
 
 }
