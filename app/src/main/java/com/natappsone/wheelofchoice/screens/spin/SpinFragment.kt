@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -52,10 +53,10 @@ class SpinFragment : Fragment(){
         val ll = binding.spinLl
         val btnSpin = binding.btnSpin
         val btnResult = binding.btnSpinResult
-        var locWheels = listOf<Wheel>()
         var currentWheel = Wheel()
 
         vm.wheels.observe(viewLifecycleOwner, Observer {
+            ll.removeAllViews()
             it.let { list ->
                 list.forEach() { wheel ->
 
@@ -73,7 +74,6 @@ class SpinFragment : Fragment(){
                     }
                     ll.addView(tv)
                 }
-                locWheels = list
             }
         })
 
@@ -97,7 +97,6 @@ class SpinFragment : Fragment(){
         btn.startAnimation(
             AnimationUtils.loadAnimation(activity, R.anim.fade_in_while_rotate)
         )
-
 
         btn.text = wheel.wheelOptions[optionNb].wheelOptionName
         btn.setBackgroundColor(Color.parseColor(wheel.wheelOptions[optionNb].wheelOptionColor.toString()))

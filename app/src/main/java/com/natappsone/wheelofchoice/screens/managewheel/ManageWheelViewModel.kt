@@ -75,21 +75,54 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
     private fun initializeWheels() {
         uiScope.launch {
 
-            //deleteAllWheels()
+            createWheels()
 
-            //some sample data
+        }
+    }
+
+    private suspend fun createWheels() {
+        withContext(Dispatchers.IO){
+
+            deleteAllWheels()
+
             var wheel = Wheel()
-            wheel.wheelName = "Test"
+            wheel.wheelName = "Fast Food"
+            wheel.wheelOptions = mutableListOf<WheelOption>()
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Pizza", wheelOptionColor = "#fc8403"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Chinese", wheelOptionColor = "#fc2003"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Fries", wheelOptionColor = "#0324fc"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Pitta", wheelOptionColor = "#446c82"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "McDonalds", wheelOptionColor = "#7703fc"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "VeggieStuff", wheelOptionColor = "#3dfc03"))
+            insertWheel(wheel)
 
-            val wheelOpt1 = WheelOption()
-            wheelOpt1.wheelOptionName = "TestOption1"
-            wheelOpt1.wheelOptionColor = "#ff0000"
-            val wheelOpt2 = WheelOption()
-            wheelOpt2.wheelOptionName = "TestOption2"
-            wheelOpt2.wheelOptionColor = "#ffffff"
-            wheel.wheelOptions = mutableListOf(wheelOpt1, wheelOpt2)
+            wheel = Wheel()
+            wheel.wheelName = "Yes or No"
+            wheel.wheelOptions = mutableListOf<WheelOption>()
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "YES", wheelOptionColor = "#3dfc03"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "NO", wheelOptionColor = "#fc0303"))
+            insertWheel(wheel)
 
-            //insertWheel(wheel)
+            wheel = Wheel()
+            wheel.wheelName = "Europe"
+            wheel.wheelOptions = mutableListOf<WheelOption>()
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Albania", wheelOptionColor = "#fc0303"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Andorra", wheelOptionColor = "#0367fc"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Armenia", wheelOptionColor = "#fc6203"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Austria", wheelOptionColor = "#ffffff"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Azerbaijan", wheelOptionColor = "#00fff7"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Belarus", wheelOptionColor = "#2d7500"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Belgium", wheelOptionColor = "#000000"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Bosnia", wheelOptionColor = "#031285"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Bulgaria", wheelOptionColor = "#008a63"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Croatia", wheelOptionColor = "#c20404"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Netherlands", wheelOptionColor = "#ff7700"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Germany", wheelOptionColor = "#919191"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "France", wheelOptionColor = "#003f9e"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "Italy", wheelOptionColor = "#198705"))
+            wheel.wheelOptions.add(WheelOption(wheelOptionName = "England", wheelOptionColor = "#570587"))
+            insertWheel(wheel)
+
         }
     }
 

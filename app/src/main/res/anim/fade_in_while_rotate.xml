@@ -7,9 +7,9 @@
         />
     <rotate
         android:fromDegrees="0"
-        android:toDegrees="1800"
-        android:repeatCount="8"
-        android:duration="1080"
+        android:toDegrees="360"
+        android:repeatCount="4"
+        android:duration="720"
         android:pivotX="50%"
         android:pivotY="50%"
         />
