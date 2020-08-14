@@ -59,11 +59,13 @@ class ManageWheelFragment : Fragment() {
                 }
         })
 
-        val adapter = WheelsAdapter()
+        val adapter = WheelsAdapter(WheelListListener { 
+            wheelId ->  vm.goToUpdateWheel(wheelId)
+        })
         binding.wheelsRecList.adapter = adapter
         vm.wheels.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.data = it
+                adapter.submitList(it)
             }
         })
 

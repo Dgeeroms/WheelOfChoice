@@ -1,5 +1,7 @@
 package com.natappsone.wheelofchoice.utilities
 
+//to be deleted
+/*
 import android.content.res.Resources
 import android.os.Build
 import android.text.Html
@@ -28,3 +30,4 @@ fun formatWheels(wheels: List<Wheel>, resources: Resources): Spanned{
         return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
+*/

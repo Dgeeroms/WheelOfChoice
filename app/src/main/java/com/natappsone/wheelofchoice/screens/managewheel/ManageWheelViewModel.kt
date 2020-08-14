@@ -7,7 +7,6 @@ import com.natappsone.wheelofchoice.database.WheelsDatabase
 import com.natappsone.wheelofchoice.database.WheelsDatabaseDao
 import com.natappsone.wheelofchoice.models.Wheel
 import com.natappsone.wheelofchoice.models.WheelOption
-import com.natappsone.wheelofchoice.utilities.formatWheels
 import kotlinx.coroutines.*
 
 class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) : AndroidViewModel(application) {
@@ -22,10 +21,6 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     val wheels = db.getAll()
-    //map to presentable string
-    val wheelNameString = Transformations.map(wheels) {
-                wheels -> formatWheels(wheels, application.resources)
-    }
 
 
     private var _navigateToUpdateWheel = MutableLiveData<Wheel>()
@@ -52,7 +47,7 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
     private fun initializeWheels() {
         uiScope.launch {
 
-            deleteAllWheels()
+            //deleteAllWheels()
 
             //some sample data
             var wheel = Wheel()
@@ -96,10 +91,18 @@ class ManageWheelViewModel(val db: WheelsDatabaseDao, application: Application) 
         }
     }
 
-    fun goToUpdateWheel(){
+    fun goToUpdateWheel(wheelId: Long){
         uiScope.launch {
-            _navigateToUpdateWheel.value = Wheel()
+            _navigateToUpdateWheel.value = getById(wheelId)
         }
+    }
+
+    private suspend fun getById(wheelId: Long): Wheel{
+        var wheel = Wheel()
+        withContext(Dispatchers.IO){
+           wheel = db.getById(wheelId)
+        }
+        return wheel
     }
 
     private fun updateWheel(wheel: Wheel){

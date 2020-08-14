@@ -61,7 +61,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:onClick="@{() -> manageWheelViewModel.onSave()}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

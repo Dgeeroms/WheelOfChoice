@@ -17,6 +17,9 @@ interface WheelsDatabaseDao{
     @Query("SELECT * FROM wheel_table ORDER BY wheel_name ASC")
     fun getAll(): LiveData<List<Wheel>> //List<Wheel>
 
+    @Query("SELECT * FROM wheel_table WHERE wheelId = :wheelId")
+    fun getById(wheelId: Long): Wheel
+
     @Delete
     fun delete(wheel: Wheel)
 

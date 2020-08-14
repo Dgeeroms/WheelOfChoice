@@ -7,6 +7,9 @@
         <variable
             name="manageWheelViewModel"
             type="com.natappsone.wheelofchoice.screens.managewheel.ManageWheelViewModel" />
+        <variable
+            name="wheel"
+            type="com.natappsone.wheelofchoice.models.Wheel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,29 +20,53 @@
 
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment"
-            app:layout_constraintBottom_toTopOf="@+id/update_save_button"
+            android:id="@+id/update_name_label"
+            style="@style/edit_text_label"
+            android:layout_marginBottom="300dp"
+            android:text="@string/wheel_name"
+            app:layout_constraintBottom_toTopOf="@+id/update_name_edit_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+
+            android:id="@+id/update_name_edit_text"
+            style="@style/edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_name_label"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wheelOptions_recList"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/update_save_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_name_edit_text">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
             android:id="@+id/update_save_button"
             style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> manageWheelViewModel.onSave()}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:onClick="@{() -> manageWheelViewModel.onSave()}"/>
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

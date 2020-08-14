@@ -18,7 +18,7 @@
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_marginTop">16dp</item>
-
+        <item name="android:fontFamily">@font/milonga</item>
     </style>
 
     <style name="main_spin_button">
@@ -33,7 +33,7 @@
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_marginTop">16dp</item>
-
+        <item name="android:fontFamily">@font/milonga</item>
 
     </style>
 
@@ -48,23 +48,25 @@
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_marginTop">16dp</item>
-
+        <item name="android:fontFamily">@font/milonga</item>
     </style>
 
     <style name="edit_text_label">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">0sp</item>
         <item name="android:padding">15sp</item>
         <item name="android:textColor">@color/edit_text_label</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/milonga</item>
     </style>
 
     <style name="edit_text">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">0sp</item>
         <item name="android:padding">15sp</item>
         <item name="android:textColor">@color/edit_text_label</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/milonga</item>
     </style>
 
 

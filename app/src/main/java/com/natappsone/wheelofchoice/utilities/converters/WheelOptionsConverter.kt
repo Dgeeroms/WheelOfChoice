@@ -38,4 +38,3 @@ class WheelOptionsConverter {
     }
 }
 
-class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
